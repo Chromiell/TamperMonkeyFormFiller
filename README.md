@@ -29,7 +29,7 @@ You need a browser extension to run the script. Install **Tampermonkey** or **Vi
 
 Once the extension is installed, click the link below to let Tampermonkey parse and install the script automatically:
 
-👉 **[Click here to Install/Update the Script](https://raw.githubusercontent.com/Chromiell/TamperMonkeyScripts/main/form-filler.user.js)**
+👉 **[Click here to Install/Update the Script](https://raw.githubusercontent.com/Chromiell/TamperMonkeyFormFiller/main/form-filler.user.js)**
 
 _(Note: Replace the link above in your README with your actual repository URL)._
 
