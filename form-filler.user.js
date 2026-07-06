@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name         Super Form Filler Multi-Form (Email Patch)
+// @name         Super Form Filler Multi-Form (Explicit VAT Match)
 // @namespace    http://tampermonkey.net/
-// @version      1.8
-// @description  Risolve il falso positivo del campo email scambiato per indirizzo postale a causa del testo di nota.
+// @version      1.9.1
+// @description  Riconoscimento P.IVA tramite whitelist esplicita di parole chiave (openapivat, companyvat, vatnumber, ecc.) con e senza separatori.
 // @author       Dev Peer
 // @match        *://*/*
 // @grant        none
-// ==/UserScript==
+// ==UserScript==
 
 (function () {
     "use strict";
@@ -416,7 +416,7 @@
 
                 const p = profiliAssegnati[groupKey];
 
-                // --- ALBERO DI LOGICHE OTTIMIZZATO ---
+                // --- ALBERO DI LOGICHE CON PRIORITÀ AGGIORNATA (v1.9.1) ---
 
                 // 1. CAP
                 if (
@@ -436,7 +436,7 @@
                 ) {
                     impostaValore(el, p.provincia);
                 }
-                // 3. Indirizzo di residenza (CORRETTO: Ignora se il contesto parla esplicitamente di email)
+                // 3. Indirizzo di residenza
                 else if (
                     (desc.includes("indirizzo") ||
                         desc.includes("address") ||
@@ -449,7 +449,22 @@
                 ) {
                     impostaValore(el, p.indirizzo);
                 }
-                // 4. Codice Fiscale
+                // 4. Partita IVA (Vince nei campi ibridi + Whitelist esplicita per le varianti VAT)
+                else if (
+                    desc.includes("piva") ||
+                    desc.includes("partitaiva") ||
+                    desc.includes("partita_iva") ||
+                    desc.includes("partita-iva") ||
+                    desc.includes("p.iva") ||
+                    parentText.includes("partita iva") ||
+                    parentText.includes("p.iva") ||
+                    /\bvat\b|openapivat|companyvat|vatnumber|vatnum|openapi[-_]vat|company[-_]vat|vat[-_]num(?:ber)?/.test(
+                        desc,
+                    )
+                ) {
+                    impostaValore(el, p.piva);
+                }
+                // 5. Codice Fiscale
                 else if (
                     parentText.includes("codice fiscale") ||
                     parentText.includes("codice_fiscale") ||
@@ -460,18 +475,6 @@
                     el.maxLength === 16
                 ) {
                     impostaValore(el, p.cf);
-                }
-                // 5. Partita IVA
-                else if (
-                    desc.includes("piva") ||
-                    desc.includes("partitaiva") ||
-                    desc.includes("partita_iva") ||
-                    desc.includes("p.iva") ||
-                    parentText.includes("partita iva") ||
-                    parentText.includes("p.iva") ||
-                    /\bvat\b/i.test(desc)
-                ) {
-                    impostaValore(el, p.piva);
                 }
                 // 6. Telefono / Cellulare
                 else if (
@@ -506,7 +509,7 @@
                 ) {
                     impostaValore(el, p.nome);
                 }
-                // 9. Email (Ora intercetta correttamente l'input saltato dal filtro indirizzo)
+                // 9. Email
                 else if (
                     type === "email" ||
                     desc.includes("email") ||
