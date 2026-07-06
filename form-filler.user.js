@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Super Form Filler Multi-Form (Explicit VAT Match)
 // @namespace    http://tampermonkey.net/
-// @version      1.9.1
+// @version      1.9.2
 // @description  Riconoscimento P.IVA tramite whitelist esplicita di parole chiave (openapivat, companyvat, vatnumber, ecc.) con e senza separatori.
 // @author       Chromiell
 // @match        *://*/*
