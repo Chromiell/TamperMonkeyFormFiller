@@ -33,8 +33,6 @@ Once the extension is installed, click the link below to let Tampermonkey parse 
 
 👉 **[Click here to Install/Update the Script](https://raw.githubusercontent.com/Chromiell/TamperMonkeyFormFiller/main/form-filler.user.js)**
 
-_(Note: Replace the link above in your README with your actual repository URL)._
-
 ---
 
 ## 💡 How to Use
