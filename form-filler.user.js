@@ -6,6 +6,8 @@
 // @author       Chromiell
 // @match        *://*/*
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/Chromiell/TamperMonkeyFormFiller/main/form-filler.user.js
+// @downloadURL  https://raw.githubusercontent.com/Chromiell/TamperMonkeyFormFiller/main/form-filler.user.js
 // ==/UserScript==
 
 (function () {

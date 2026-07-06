@@ -47,4 +47,4 @@ _(Note: Replace the link above in your README with your actual repository URL)._
 
 Because this script uses `@updateURL` pointing directly to this repository, your browser will automatically fetch the latest updates whenever a new version is pushed to the `main` branch.
 
-To manually check for updates, go to your **Tampermonkey Dashboard -> Utilities -> Check for updates**.
+To manually check for updates, go to your **Tampermonkey Utilities -> Check for userscript updates**.
