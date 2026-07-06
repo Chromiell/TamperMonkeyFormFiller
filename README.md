@@ -24,7 +24,7 @@ Follow these quick steps to install the script directly from this repository int
 
 You need a browser extension to run the script. Install **Tampermonkey** or **Violentmonkey** for your browser:
 
-- [Tampermonkey for Chrome / Brave / Edge](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmfjgcdfmmnhhdgnoahbnh)
+- [Tampermonkey for Chrome / Brave / Edge](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 - [Tampermonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
 
 ### 2. One-Click Installation
